@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 
 # Construct a 5 x 3 matrix, unitialized
 a = torch.empty(5, 3)
@@ -54,3 +55,15 @@ print(torch.add(x, y))
 testA = torch.tensor([[1, 1], [2, 2]])
 testB = torch.tensor([[1, 1], [2, 2]])
 print(torch.add(testA, testB))
+
+
+result = torch.empty(2, 2, dtype=torch.long)
+torch.add(testA, testB, out=result)
+print(result)
+
+a = np.ones(5)
+b = torch.from_numpy(a)
+np.add(a, 1, out=a)
+print(a)
+print()
+print(b)
